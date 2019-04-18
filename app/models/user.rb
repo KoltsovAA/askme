@@ -13,11 +13,18 @@ class User < ApplicationRecord
 
   validates :username, length: {maximum: 40}, format: {with: /\A[a-zA-Z0-9_]+\z/}
 
-  attr_accessor :password
-
   validates_presence_of :password, on: :create
   validates_confirmation_of :password
+
+  attr_accessor :password
+
+
   before_save :encrypt_password
+  before_validation :username_downcase
+
+  def username_downcase
+      self.username = username.downcase
+  end
 
   def encrypt_password
     if self.password.present?
