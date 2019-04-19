@@ -18,12 +18,11 @@ class User < ApplicationRecord
 
   attr_accessor :password
 
-
   before_save :encrypt_password
   before_validation :username_downcase
 
   def username_downcase
-      self.username = username.downcase
+    self.username = username.downcase
   end
 
   def encrypt_password
