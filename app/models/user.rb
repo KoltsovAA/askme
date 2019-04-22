@@ -10,7 +10,6 @@ class User < ApplicationRecord
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-
   validates :username, length: {maximum: 40}, format: {with: /\A[a-zA-Z0-9_]+\z/}
 
   validates_presence_of :password, on: :create
