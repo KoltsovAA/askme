@@ -8,7 +8,6 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-
     if @question.save
       redirect_to user_path(@question.user), notice: 'Вопрос задан'
     else
@@ -26,9 +25,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     user = @question.user
-
-    # Удаляем вопрос
-    @question.destroy
+     @question.destroy
     redirect_to user_path(user), notice: 'Вопрос удален'
   end
 
