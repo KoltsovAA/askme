@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
+  
   protect_from_forgery with: :exception
-
   helper_method :current_user
 
   private
@@ -12,4 +12,5 @@ class ApplicationController < ActionController::Base
   def reject_user
     redirect_to root_path, alert: 'Вам сюда низя!'
   end
+  
 end
