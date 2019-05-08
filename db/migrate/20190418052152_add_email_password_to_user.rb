@@ -3,6 +3,6 @@ class AddEmailPasswordToUser < ActiveRecord::Migration[5.2]
     add_column :users, :email, :string
     add_column :users, :password, :hash
     add_column :users, :password_salt, :string
-    add_column :users, :avatar_url,:string
+    add_column :users, :avatar_url, :string
   end
 end
